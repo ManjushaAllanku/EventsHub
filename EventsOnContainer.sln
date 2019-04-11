@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{F581E2CE-7179-402E-8DF4-4588FDD4ADBB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B3370DAB-434B-4398-8447-C36EC0354B09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventCatalaogApi", "EventCatalaogApi\EventCatalaogApi.csproj", "{A138C559-AF12-4817-892F-FB09F5A50A30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A138C559-AF12-4817-892F-FB09F5A50A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A138C559-AF12-4817-892F-FB09F5A50A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A138C559-AF12-4817-892F-FB09F5A50A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A138C559-AF12-4817-892F-FB09F5A50A30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B3370DAB-434B-4398-8447-C36EC0354B09} = {F581E2CE-7179-402E-8DF4-4588FDD4ADBB}
+		{A138C559-AF12-4817-892F-FB09F5A50A30} = {B3370DAB-434B-4398-8447-C36EC0354B09}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E287BB59-FC45-4DCF-9616-DF6F6AE7A1C3}
+	EndGlobalSection
+EndGlobal
