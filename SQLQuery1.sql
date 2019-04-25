@@ -1,1 +1,0 @@
-﻿Create DATABASE eventcatalogdb49

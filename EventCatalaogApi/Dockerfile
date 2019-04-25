@@ -1,18 +1,17 @@
 FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["EventCatalaogApi/EventCatalaogApi.csproj", "EventCatalaogApi/"]
-RUN dotnet restore "EventCatalaogApi/EventCatalaogApi.csproj"
 COPY . .
-WORKDIR "/src/EventCatalaogApi"
-RUN dotnet build "EventCatalaogApi.csproj" -c Release -o /app
+RUN dotnet restore 
+
+
 
 FROM build AS publish
-RUN dotnet publish "EventCatalaogApi.csproj" -c Release -o /app
+RUN dotnet publish  -c Release -o /app
+
 
 FROM base AS final
 WORKDIR /app

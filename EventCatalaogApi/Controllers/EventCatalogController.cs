@@ -51,7 +51,7 @@ namespace EventCatalaogApi.Controllers
             if (events != null)
             {
 
-                events.PictureUrl.Replace("http://ExternalEventCatalogBaseUrltobereplaced",
+                events.PictureUrl.Replace("http://externaleventcatalogbaseurltobereplaced",
                                           _config["ExternalEventCatalogBaseUrl"]);
 
                 return Ok(events);
@@ -93,7 +93,7 @@ namespace EventCatalaogApi.Controllers
            ChangePictureUrl(List<EventCatalog> items)
         {
             items.ForEach(
-                c => c.PictureUrl = c.PictureUrl
+                E => E.PictureUrl = E.PictureUrl
                     .Replace("http://externaleventcatalogbaseurltobereplaced"
                     , _config["ExternalEventCatalogBaseUrl"])
                 );

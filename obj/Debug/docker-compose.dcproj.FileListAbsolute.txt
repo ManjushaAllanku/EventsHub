@@ -1,0 +1,13 @@
+D:\EventsOnContainer\bin\Debug\EventCatalaogApi.dll
+D:\EventsOnContainer\bin\Debug\EventCatalaogApi.pdb
+D:\EventsOnContainer\obj\Debug\docker-compose.dcprojAssemblyReference.cache
+D:\EventsOnContainer\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+D:\EventsOnContainer\obj\Debug\docker-compose.dcproj.CopyComplete
+D:\EventsOnContainer\bin\Debug\WebMvc.Views.dll
+D:\EventsOnContainer\bin\Debug\WebMvc.Views.pdb
+D:\EventsOnContainer\bin\Debug\TokenServiceApi.Views.dll
+D:\EventsOnContainer\bin\Debug\TokenServiceApi.Views.pdb
+D:\EventsOnContainer\bin\Debug\TokenServiceApi.dll
+D:\EventsOnContainer\bin\Debug\WebMvc.dll
+D:\EventsOnContainer\bin\Debug\WebMvc.pdb
+D:\EventsOnContainer\bin\Debug\TokenServiceApi.pdb

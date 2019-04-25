@@ -1,0 +1,72 @@
+networks:
+  backend: {}
+  frontend: {}
+services:
+  eventcatalaogapi:
+    build:
+      context: D:\EventsOnContainer\EventCatalaogAPI
+      dockerfile: Dockerfile
+    container_name: eventcatalog
+    depends_on:
+    - mssqlserver
+    environment:
+      DatabaseName: EventCatalogdb
+      DatabaseServer: mssqlserver
+      DatabaseUserName: sa
+      DatabaseUserPassword: Events(!)
+      ExternalEventCatalogBaseUrl: http://localhost:5010
+    image: eventcatalaogapi
+    networks:
+      backend: null
+      frontend: null
+    ports:
+    - published: 5010
+      target: 80
+  mssqlserver:
+    container_name: Eventcatalogdb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Events(!)
+    image: microsoft/mssql-server-linux:latest
+    networks:
+      backend: null
+    ports:
+    - published: 1447
+      target: 1433
+  tokenserver:
+    build:
+      context: D:\EventsOnContainer\TokenServiceApi
+      dockerfile: Dockerfile
+    container_name: tokenserverdb
+    depends_on:
+    - mssqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      BasketApiClient: http://localhost:5051
+      MVc_Client: http://localhost:5200
+    networks:
+      backend: null
+      frontend: null
+    ports:
+    - published: 5020
+      target: 80
+  webmvc:
+    build:
+      context: D:\EventsOnContainer\WebMvc
+      dockerfile: Dockerfile
+    container_name: WebShop
+    depends_on:
+    - eventcatalaogapi
+    - tokenserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      CallBackUrl: http://localhost:5200
+      CartUrl: http://cartapi
+      EventCatalogUrl: http://eventcatalaogapi
+      IdentityUrl: http://10.0.0.66:5020
+    networks:
+      frontend: null
+    ports:
+    - published: 5200
+      target: 80
+version: '3.4'
