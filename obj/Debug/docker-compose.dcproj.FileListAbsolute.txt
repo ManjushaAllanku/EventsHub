@@ -11,3 +11,7 @@ D:\EventsOnContainer\bin\Debug\TokenServiceApi.dll
 D:\EventsOnContainer\bin\Debug\WebMvc.dll
 D:\EventsOnContainer\bin\Debug\WebMvc.pdb
 D:\EventsOnContainer\bin\Debug\TokenServiceApi.pdb
+D:\EventsOnContainer\bin\Debug\CartApi.dll
+D:\EventsOnContainer\bin\Debug\OrderApi.dll
+D:\EventsOnContainer\bin\Debug\CartApi.pdb
+D:\EventsOnContainer\bin\Debug\OrderApi.pdb

@@ -7,7 +7,7 @@ namespace WebMvc.Models
 {
     public class EventCatalogItem
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public String Name { get; set; }
 

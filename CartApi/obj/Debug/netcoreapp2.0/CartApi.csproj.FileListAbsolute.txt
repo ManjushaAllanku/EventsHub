@@ -1,0 +1,11 @@
+D:\EventsOnContainer\CartApi\bin\Debug\netcoreapp2.0\CartApi.deps.json
+D:\EventsOnContainer\CartApi\bin\Debug\netcoreapp2.0\CartApi.runtimeconfig.json
+D:\EventsOnContainer\CartApi\bin\Debug\netcoreapp2.0\CartApi.runtimeconfig.dev.json
+D:\EventsOnContainer\CartApi\bin\Debug\netcoreapp2.0\CartApi.dll
+D:\EventsOnContainer\CartApi\bin\Debug\netcoreapp2.0\CartApi.pdb
+D:\EventsOnContainer\CartApi\obj\Debug\netcoreapp2.0\CartApi.csprojAssemblyReference.cache
+D:\EventsOnContainer\CartApi\obj\Debug\netcoreapp2.0\CartApi.csproj.CoreCompileInputs.cache
+D:\EventsOnContainer\CartApi\obj\Debug\netcoreapp2.0\CartApi.AssemblyInfoInputs.cache
+D:\EventsOnContainer\CartApi\obj\Debug\netcoreapp2.0\CartApi.AssemblyInfo.cs
+D:\EventsOnContainer\CartApi\obj\Debug\netcoreapp2.0\CartApi.dll
+D:\EventsOnContainer\CartApi\obj\Debug\netcoreapp2.0\CartApi.pdb

@@ -1,6 +1,16 @@
 version: '3.4'
 
 services:
+  cart:
+    volumes:
+      - C:\Users\v-prall\vsdbg\vs2017u5:/remote_debugger:ro
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_cart$ CartApi.dll"
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""
+
   eventcatalaogapi:
     volumes:
       - C:\Users\v-prall\vsdbg\vs2017u5:/remote_debugger:ro
@@ -10,6 +20,18 @@ services:
       #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_eventcatalaogapi$ EventCatalaogApi.dll"
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""
+
+
+  order:
+    volumes:
+      - C:\Users\v-prall\vsdbg\vs2017u5:/remote_debugger:ro
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_order$ OrderApi.dll"
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""
+
 
   tokenserver:
     volumes:

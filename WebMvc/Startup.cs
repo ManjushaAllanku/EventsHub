@@ -7,11 +7,17 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using WebMvc.Infrastructure;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using WebMvc.Models;
 using WebMvc.Services;
+using WebMvc.Infrastructure;
+
 
 namespace WebMvc
 {
@@ -24,28 +30,40 @@ namespace WebMvc
 
         public IConfiguration Configuration { get; }
 
-       // This method gets called by the runtime. Use this method to add services to the container.
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
-         JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            services.AddMvc().AddJsonOptions(options => {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
-         services.AddSingleton<IHttpClient, CustomHttpClient>();
-        services.AddSingleton<IEventCatalogService, EventCatalogService>();
-        var identityUrl = Configuration.GetValue<string>("IdentityUrl");
-          var callBackUrl = Configuration.GetValue<string>("CallBackUrl");
-           services.AddAuthentication(options =>
+
+           
+            services.Configure<PaymentSettings>(Configuration);
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IHttpClient, CustomHttpClient>();
+            services.AddTransient<IEventCatalogService, EventCatalogService>();
+
+            services.AddTransient<IIdentityService<ApplicationUser>, IdentityService>();
+            services.AddTransient<ICartService, CartService>();
+            services.AddTransient<IOrderService, OrderService>();
+
+            var identityUrl = Configuration.GetValue<string>("IdentityUrl");
+            var callBackUrl = Configuration.GetValue<string>("CallBackUrl");
+            services.AddAuthentication(options =>
             {
-              options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-               options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-               options.DefaultAuthenticateScheme = "Cookies";
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+                // options.DefaultAuthenticateScheme = "Cookies";
             })
-           .AddCookie()
-           .AddOpenIdConnect(options => {
+            .AddCookie()
+            .AddOpenIdConnect(options => {
                 options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 
-               options.Authority = identityUrl.ToString();
-              options.SignedOutRedirectUri = callBackUrl.ToString();
+                options.Authority = identityUrl.ToString();
+                options.SignedOutRedirectUri = callBackUrl.ToString();
                 options.ClientId = "mvc";
                 options.ClientSecret = "secret";
                 options.ResponseType = "code id_token";
@@ -55,13 +73,8 @@ namespace WebMvc
                 options.Scope.Add("openid");
                 options.Scope.Add("profile");
                 options.Scope.Add("offline_access");
-                options.TokenValidationParameters = new TokenValidationParameters()
-                {
-
-                    NameClaimType = "name",
-                    RoleClaimType = "role"
-                };
-
+                options.Scope.Add("basket");
+                options.Scope.Add("order");
 
 
             });
@@ -72,7 +85,6 @@ namespace WebMvc
         {
             if (env.IsDevelopment())
             {
-                app.UseDatabaseErrorPage();
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -86,7 +98,10 @@ namespace WebMvc
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=EventCatalog}/{action=Index}/{id?}");
+                routes.MapRoute(
+                  name: "defaultError",
+                  template: "{controller=Error}/{action=Error}");
             });
         }
     }

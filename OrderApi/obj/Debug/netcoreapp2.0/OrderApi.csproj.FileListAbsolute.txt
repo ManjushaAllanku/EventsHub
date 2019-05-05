@@ -1,0 +1,11 @@
+D:\EventsOnContainer\OrderApi\bin\Debug\netcoreapp2.0\OrderApi.deps.json
+D:\EventsOnContainer\OrderApi\bin\Debug\netcoreapp2.0\OrderApi.runtimeconfig.json
+D:\EventsOnContainer\OrderApi\bin\Debug\netcoreapp2.0\OrderApi.runtimeconfig.dev.json
+D:\EventsOnContainer\OrderApi\bin\Debug\netcoreapp2.0\OrderApi.dll
+D:\EventsOnContainer\OrderApi\bin\Debug\netcoreapp2.0\OrderApi.pdb
+D:\EventsOnContainer\OrderApi\obj\Debug\netcoreapp2.0\OrderApi.csprojAssemblyReference.cache
+D:\EventsOnContainer\OrderApi\obj\Debug\netcoreapp2.0\OrderApi.csproj.CoreCompileInputs.cache
+D:\EventsOnContainer\OrderApi\obj\Debug\netcoreapp2.0\OrderApi.AssemblyInfoInputs.cache
+D:\EventsOnContainer\OrderApi\obj\Debug\netcoreapp2.0\OrderApi.AssemblyInfo.cs
+D:\EventsOnContainer\OrderApi\obj\Debug\netcoreapp2.0\OrderApi.dll
+D:\EventsOnContainer\OrderApi\obj\Debug\netcoreapp2.0\OrderApi.pdb

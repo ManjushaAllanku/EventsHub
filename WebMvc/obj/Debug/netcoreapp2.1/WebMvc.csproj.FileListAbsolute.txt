@@ -26,7 +26,6 @@ D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\WebMvc.RazorTargetAssemblyIn
 D:\EventsOnContainer\WebMvc\bin\Debug\netcoreapp2.1\WebMvc.pdb
 D:\EventsOnContainer\WebMvc\bin\Debug\netcoreapp2.1\WebMvc.Views.dll
 D:\EventsOnContainer\WebMvc\bin\Debug\netcoreapp2.1\WebMvc.Views.pdb
-D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\WebMvc.Views.pdb
 D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\WebMvc.dll
 D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\WebMvc.pdb
@@ -36,3 +35,14 @@ D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\EventCatalog\_pa
 D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\EventCatalog\_product.g.cshtml.cs
 D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\EventCatalog\About.g.cshtml.cs
 D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Order\Complete.g.cshtml.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Order\Create.g.cshtml.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Order\Detail.g.cshtml.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Order\Index.g.cshtml.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Order\Orders.g.cshtml.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Order\_OrderItems.g.cshtml.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\CartList\Default.g.cshtml.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Cart\Default.g.cshtml.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Header.g.cshtml.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+D:\EventsOnContainer\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Cart\Index.g.cshtml.cs

@@ -1,0 +1,12 @@
+D:\CartApi\obj\Debug\netcoreapp2.1\CartApi.csproj.CoreCompileInputs.cache
+D:\CartApi\obj\Debug\netcoreapp2.1\CartApi.AssemblyInfoInputs.cache
+D:\CartApi\obj\Debug\netcoreapp2.1\CartApi.AssemblyInfo.cs
+D:\CartApi\bin\Debug\netcoreapp2.1\CartApi.deps.json
+D:\CartApi\bin\Debug\netcoreapp2.1\CartApi.runtimeconfig.json
+D:\CartApi\bin\Debug\netcoreapp2.1\CartApi.runtimeconfig.dev.json
+D:\CartApi\bin\Debug\netcoreapp2.1\CartApi.dll
+D:\CartApi\obj\Debug\netcoreapp2.1\CartApi.csprojAssemblyReference.cache
+D:\CartApi\obj\Debug\netcoreapp2.1\CartApi.RazorAssemblyInfo.cache
+D:\CartApi\obj\Debug\netcoreapp2.1\CartApi.RazorAssemblyInfo.cs
+D:\CartApi\obj\Debug\netcoreapp2.1\CartApi.RazorTargetAssemblyInfo.cache
+D:\CartApi\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

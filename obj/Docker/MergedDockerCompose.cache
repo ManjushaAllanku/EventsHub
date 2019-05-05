@@ -2,6 +2,33 @@ networks:
   backend: {}
   frontend: {}
 services:
+  basket.data:
+    image: redis
+    networks:
+      backend: null
+    ports:
+    - published: 6378
+      target: 6379
+  cart:
+    build:
+      context: D:\EventsOnContainer\CartApi
+      dockerfile: Dockerfile
+    container_name: cartstore
+    depends_on:
+    - basket.data
+    - rabbitmq
+    - tokenserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionString: basket.data
+      IdentityUrl: http://tokenserver
+    image: cartapi
+    networks:
+      backend: null
+      frontend: null
+    ports:
+    - published: 5055
+      target: 80
   eventcatalaogapi:
     build:
       context: D:\EventsOnContainer\EventCatalaogAPI
@@ -33,6 +60,43 @@ services:
     ports:
     - published: 1447
       target: 1433
+  order:
+    build:
+      context: D:\EventsOnContainer\OrderApi
+      dockerfile: Dockerfile
+    container_name: orderstore
+    depends_on:
+    - mssqlserver
+    - rabbitmq
+    - tokenserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DATABASE: ordersdb
+      IdentityUrl: http://tokenserver
+      SA_PASSWORD: Events(!)
+      SQLSERVER_HOST: eventcatalog
+    image: orderapi
+    networks:
+      backend: null
+      frontend: null
+    ports:
+    - published: 5054
+      target: 80
+  rabbitmq:
+    container_name: rabbitmq
+    hostname: myrabbitmq
+    image: rabbitmq:3-management
+    networks:
+      backend: null
+    ports:
+    - published: 15672
+      target: 15672
+    - published: 5672
+      target: 5672
+    - published: 5671
+      target: 5671
+    volumes:
+    - C:\Users\v-prall\rabbitmq:/var/lib/rabbitmq/mnesia:rw
   tokenserver:
     build:
       context: D:\EventsOnContainer\TokenServiceApi
@@ -42,7 +106,7 @@ services:
     - mssqlserver
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      BasketApiClient: http://localhost:5051
+      BasketApiClient: http://localhost:5055
       MVc_Client: http://localhost:5200
     networks:
       backend: null
@@ -56,14 +120,19 @@ services:
       dockerfile: Dockerfile
     container_name: WebShop
     depends_on:
+    - cart
     - eventcatalaogapi
+    - order
     - tokenserver
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       CallBackUrl: http://localhost:5200
-      CartUrl: http://cartapi
+      CartUrl: http://cart
       EventCatalogUrl: http://eventcatalaogapi
       IdentityUrl: http://10.0.0.66:5020
+      OrderUrl: http://order
+      StripePrivateKey: sk_test_9GBGdZmSmMN3dxlI75s2LnRH00YoHqdAtw
+      StripePublicKey: pk_test_2f4ITROidfCujiuGTBgyiAJC009cZUcCjo
     networks:
       frontend: null
     ports:

@@ -1,6 +1,24 @@
 version: '3.4'
 
 services:
+  cart:
+    image: cartapi:dev
+    build:
+      target: base
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_cart$
+    volumes:
+      - D:\EventsOnContainer\CartApi:/app
+      - C:\Users\v-prall\vsdbg\vs2017u5:/remote_debugger:ro
+#$nuget_volume_mapping_cart$
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_cart$ bin/Debug/netcoreapp2.0/CartApi.dll"
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""
+
   eventcatalaogapi:
     image: eventcatalaogapi:dev
     build:
@@ -18,6 +36,26 @@ services:
       #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_eventcatalaogapi$ bin/Debug/netcoreapp2.1/EventCatalaogApi.dll"
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""
+
+
+  order:
+    image: orderapi:dev
+    build:
+      target: base
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_order$
+    volumes:
+      - D:\EventsOnContainer\OrderApi:/app
+      - C:\Users\v-prall\vsdbg\vs2017u5:/remote_debugger:ro
+#$nuget_volume_mapping_order$
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_order$ bin/Debug/netcoreapp2.0/OrderApi.dll"
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""
+
 
   tokenserver:
     image: tokenserver:dev

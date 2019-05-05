@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\CartController - Copy.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\fonts\Montserrat-Bold.svg" />
     <None Include="wwwroot\fonts\Montserrat-Bold.woff2" />
     <None Include="wwwroot\fonts\Montserrat-Regular.svg" />
@@ -65,7 +69,9 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.2105168" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Polly" Version="7.1.0" />
+    <PackageReference Include="Stripe.net" Version="17.8.0" />
   </ItemGroup>
 
 </Project>
